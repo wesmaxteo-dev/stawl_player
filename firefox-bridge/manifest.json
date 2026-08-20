@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Stawl Player Bridge",
+  "version": "0.1.0",
+  "description": "Share one selected Stawl encounter with a local player display.",
+  "host_permissions": ["https://stawl.app/*", "http://127.0.0.1:5174/*"],
+  "permissions": ["webRequest", "webRequestBlocking"],
+  "action": {
+    "default_title": "Toggle Stawl player sharing"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://stawl.app/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
